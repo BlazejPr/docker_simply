@@ -1,0 +1,14 @@
+
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: lb-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: dashpod
+  ports:
+  # Default port used by the image
+  - port: 80
+    targetPort: 80

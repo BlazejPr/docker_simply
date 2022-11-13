@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-deployment
+  labels:
+    app: apachex
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: podapache
+  template:
+    metadata:
+      labels:
+        app: podapache
+    spec:
+      containers:
+      - name: contapache
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80

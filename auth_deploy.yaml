@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-deploy
+  labels:
+    app: auth-dep-label
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: authpod
+  template:
+    metadata:
+      labels:
+        app: authpod
+    spec:
+      containers:
+      - name: authcont
+        image: blazejinfo/phpauth:1.0
+        ports:
+        - containerPort: 80

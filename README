@@ -1,0 +1,4 @@
+kubectl delete all  --all -n ingress-nginx
+
+
+docker exec -it 2597c11aaefa /bin/bash 

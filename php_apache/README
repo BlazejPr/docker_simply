@@ -1,0 +1,32 @@
+SIMPLY PHP-APACHE SERVER
+
+
+Buduj obraz
+$ docker build -t blazej.php .
+
+Volumeny dla tego serwera: /Users/blazejkita/Documents/kind/voluments/apache/
+
+
+
+$ docker run -d -p 80:80 --name blazej.site  -v /Users/blazejkita/Documents/kind/voluments/apache/:/var/www/html/dane_strony blazej.php
+
+
+
+calico onpremises
+https://projectcalico.docs.tigera.io/getting-started/kubernetes/self-managed-onprem/onpremises
+
+operator calico
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.24.3/manifests/tigera-operator.yaml
+curl https://raw.githubusercontent.com/projectcalico/calico/v3.24.3/manifests/custom-resources.yaml -O
+kubectl create -f custom-resources.yaml
+
+//calco dalej <max 50 nodes...
+curl https://raw.githubusercontent.com/projectcalico/calico/v3.24.3/manifests/calico.yaml -O
+kubectl apply -f calico.yaml
+
+
+
+//ingresss..
+
+
+

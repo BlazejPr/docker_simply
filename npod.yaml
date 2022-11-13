@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: npod
+  labels:
+    app: podapache
+spec:
+  containers:
+  - name: blazejinfo
+    image: blazejinfo/phpx:latest
+    ports:
+      - containerPort: 80
+        name: http-web-svc

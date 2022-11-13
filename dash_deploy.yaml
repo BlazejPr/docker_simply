@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dash-deploy
+  labels:
+    app: dash-dep-label
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dashpod
+  template:
+    metadata:
+      labels:
+        app: dashpod
+    spec:
+      containers:
+      - name: authcont
+        image: blazejinfo/phpdash:1.0
+        ports:
+        - containerPort: 80

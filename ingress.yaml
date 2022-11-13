@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mingress
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: "/index.php"
+        backend:
+          service:
+            name: auth-serv
+            port:
+              number: 80
+      - pathType: Prefix
+        path: "/dash"
+        backend
+          service:
+            name: dash-serv
+            port:
+              number: 80
